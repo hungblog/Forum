@@ -1,0 +1,2236 @@
+<!-- HungBlog Contact Form - Decoded & Beautified -->
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<div class="hb-popup-header">
+<!--  <div class="hb-popup-icon">💬</div> -->
+  <h2>Forum HungBlog.Com Việt Nam</h2>
+
+</div>
+
+<!-- thong bao -->
+
+<div class="hb-contact-top">
+  <div class="hb-contact-notice">
+    <div class="hb-icon">📢</div>
+    <div>
+      <div class="hb-title">Thông báo</div>
+      <div class="hb-desc">
+          <p>Chúng tôi luôn sẵn sàng lắng nghe ý kiến, hỗ trợ kỹ thuật và giải đáp mọi thắc mắc của bạn.</p>
+
+    Hệ thống liên hệ đã tự động cập nhật nội dung người dùng gửi lên. Sau khi gửi, vui lòng đợi vài giây để nội dung và số lượng liên hệ được cập nhật.
+    <br><br>
+    Để trả lời một người nào đó, bạn chỉ cần gõ <b>@</b>, chọn tên người cần trả lời trong danh sách gợi ý.
+  </div>
+</div>
+
+ <div class="hb-contact-info">
+<div class="hb-total-box">👥 Có <span id="hb-total">0</span> người liên hệ</div>
+
+  </div>
+
+  </div>
+
+</div>
+<!-- thong bao -->
+<!-- KHUNG SOẠN LIÊN HỆ HUNGBLOG -->
+<div class="hb-editor-wrap">
+
+  <!-- Tên và email -->
+  <div class="hb-user-fields">
+
+    <div class="hb-field">
+      <span class="hb-field-icon">👤</span>
+
+      <input
+        id="hb-name"
+        type="text"
+        placeholder="Tên của bạn"
+        autocomplete="name">
+    </div>
+
+    <div class="hb-field">
+      <span class="hb-field-icon">✉️</span>
+
+      <input
+        id="hb-email"
+        type="email"
+        placeholder="Địa chỉ email"
+        autocomplete="email">
+    </div>
+
+  </div>
+
+  <!-- Thanh công cụ -->
+  <div class="hb-editor-toolbar">
+
+    <button
+      type="button"
+      class="hb-tool-btn"
+      title="Đoạn văn"
+      onclick="hbInsertAtCursor('¶ ')">
+      ¶
+    </button>
+
+    <button
+      type="button"
+      class="hb-tool-btn"
+      title="Danh sách"
+      onclick="hbInsertAtCursor('• ')">
+      ☰
+    </button>
+
+    <button
+      type="button"
+      class="hb-tool-btn hb-tool-bold"
+      title="In đậm"
+      onclick="hbWrapSelection('**','**')">
+      B
+    </button>
+
+    <button
+      type="button"
+      class="hb-tool-btn hb-tool-italic"
+      title="In nghiêng"
+      onclick="hbWrapSelection('*','*')">
+      I
+    </button>
+
+    <button
+      type="button"
+      class="hb-tool-btn"
+      title="Chèn liên kết"
+      onclick="hbInsertLink()">
+      🔗
+    </button>
+
+    <span class="hb-toolbar-space"></span>
+
+    <span id="hb-login-status" class="hb-login-state">
+      Chưa đăng nhập
+    </span>
+
+  </div>
+
+  <!-- Nội dung liên hệ -->
+  <div class="hb-editor-content">
+
+  <div class="hb-editor">
+
+<textarea id="hb-message" placeholder="✍️ Nội dung"></textarea>
+
+</div>
+
+    <button
+      type="button"
+      class="hb-add-block"
+      title="Thêm nội dung"
+      onclick="hbToggleAddMenu(event)">
+      +
+    </button>
+
+    <div id="hb-mention-box" class="hb-mention-box"></div>
+
+    <!-- Menu nút cộng -->
+    <div id="hb-add-menu" class="hb-add-menu">
+
+      <button
+        type="button"
+        onclick="hbInsertImageLink()">
+        🖼️ Chèn hình ảnh
+      </button>
+
+      <button
+        type="button"
+        onclick="hbInsertVideoLink()">
+        🎬 Chèn video YouTube
+      </button>
+
+      <button
+        type="button"
+        onclick="hbInsertLink()">
+        🔗 Chèn liên kết
+      </button>
+
+      <button
+        type="button"
+        onclick="hbInsertMention()">
+        👤 Nhắc tên người dùng
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Thanh dưới -->
+  <div class="hb-editor-footer">
+
+    <div class="hb-editor-options">
+
+      <button
+        type="button"
+        class="hb-google-login"
+        onclick="hbGoogleLogin()"
+        title="Đăng nhập bằng Gmail">
+
+        <span class="hb-power-icon">⏻</span>
+        <span class="hb-google-text">Đăng nhập Gmail</span>
+
+      </button>
+
+      <label class="hb-private">
+
+        <input id="hb-private" type="checkbox">
+
+        <span class="hb-private-switch"></span>
+        <span class="hb-private-text">Riêng tư</span>
+
+      </label>
+
+    </div>
+
+    <button
+      type="button"
+      id="hb-submit-button"
+      class="hb-submit-button"
+      onclick="hbSendData()">
+
+      <span class="hb-submit-text">Gửi liên hệ</span>
+      <span class="hb-submit-icon">➤</span>
+
+    </button>
+
+  </div>
+
+  <p id="hb-status" role="status"></p>
+</div>
+<!-- KẾT THÚC KHUNG SOẠN LIÊN HỆ -->
+
+<!-- thong bao -->
+
+<div id="hb-list">Đang tải nội dung...</div>
+
+<div class="hb-copyright">
+  Bản Quyền Thuộc Về HungBlog.Com © <span id="hb-year"></span>
+</div>
+
+<script>function hbFormatMessage(message) {
+  /*
+   * Luôn chạy hbEscape trước.
+   * Không được định dạng trước rồi mới escape.
+   */
+  let html = hbEscape(message);
+
+  /*
+   * Định dạng mã trước để hạn chế
+   * xung đột với các dấu sao.
+   */
+  html = html.replace(
+    /`([^`\n]+)`/g,
+    "<code>$1</code>"
+  );
+
+  /*
+   * In đậm: **nội dung**
+   */
+  html = html.replace(
+    /\*\*([^*\n]+)\*\*/g,
+    "<strong>$1</strong>"
+  );
+
+  /*
+   * Gạch chân: __nội dung__
+   */
+  html = html.replace(
+    /__([^_\n]+)__/g,
+    "<u>$1</u>"
+  );
+
+  /*
+   * Gạch ngang: ~~nội dung~~
+   */
+  html = html.replace(
+    /~~([^~\n]+)~~/g,
+    "<del>$1</del>"
+  );
+
+  /*
+   * In nghiêng: *nội dung*
+   * Chạy sau in đậm để tránh xung đột.
+   */
+  html = html.replace(
+    /(^|[^*])\*([^*\n]+)\*(?!\*)/g,
+    "$1<em>$2</em>"
+  );
+
+  /*
+   * Giữ xuống dòng.
+   */
+  html = html.replace(/\r?\n/g, "<br>");
+
+  return html;
+  }</script>
+
+<script>
+const list=document.getElementById("hb-list");
+
+list.classList.add("loading");
+  list.innerHTML="";
+
+list.classList.remove("loading");
+</script>
+
+<style>
+.cursor-default {
+    cursor: default !important;
+    display: none;
+}  
+  
+.entry-title {
+    color: var(--jt-heading-color);
+    display: none;
+}  
+  
+/* Ẩn header/footer/sidebar nếu dùng trang riêng trong JetTheme */
+#header,
+#footer,
+#sidebar,
+#sidebar-static,
+aside,
+.navbar > .container,
+.navbar > .container-fluid,
+#special-categories > .widget {
+  display: none !important;
+}
+
+  
+/*=========================
+  HungBlog Loading Box
+=========================*/
+
+#hb-list{
+    max-width:1200px;
+    margin:25px auto;
+    min-height:150px;
+    padding:25px;
+    border:1px solid #e5e7eb;
+    border-radius:20px;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+/* Khi chỉ có dòng "Đang tải nội dung..." */
+#hb-list:empty::before,
+#hb-list.loading::before{
+
+    content:"";
+
+    display:block;
+
+    width:65px;
+    height:65px;
+
+    margin:20px auto;
+
+    border-radius:50%;
+
+    border:6px solid #dbeafe;
+
+    border-top:6px solid #2563eb;
+
+    animation:hbSpin .8s linear infinite;
+}
+
+#hb-list.loading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    min-height:220px;
+}
+
+#hb-list.loading::after{
+
+    content:"Đang tải nội dung liên hệ...";
+
+    display:block;
+
+    margin-top:18px;
+
+    color:#2563eb;
+}
+
+@keyframes hbSpin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}  
+.hb-skeleton{
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:1px solid #e5e7eb;
+
+    margin-bottom:18px;
+
+}
+
+.hb-skeleton-line{
+
+    height:14px;
+
+    border-radius:30px;
+
+    margin:12px 0;
+
+    background:linear-gradient(
+        90deg,
+        #f3f4f6 25%,
+        #e5e7eb 50%,
+        #f3f4f6 75%
+    );
+
+    background-size:400% 100%;
+
+    animation:loading 1.3s infinite;
+}
+
+.hb-skeleton-line:nth-child(1){
+width:30%;
+height:18px;
+}
+
+.hb-skeleton-line:nth-child(2){
+width:60%;
+}
+
+.hb-skeleton-line:nth-child(3){
+width:95%;
+}
+
+.hb-skeleton-line:nth-child(4){
+width:80%;
+}
+
+@keyframes loading{
+
+0%{
+background-position:100% 0;
+}
+
+100%{
+background-position:-100% 0;
+}
+
+}  
+  
+
+#main,
+#main-wrapper,
+#main-content,
+main,
+article,
+.post {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hb-popup-header {
+  text-align: center;
+  margin: 25px auto;
+}
+
+.hb-popup-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
+}
+
+.hb-popup-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.hb-popup-header h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+}
+
+.hb-popup-header p {
+  max-width: 720px;
+  margin: 18px auto 0;
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   HUNGBLOG CONTACT BLOCK EDITOR
+================================================== */
+
+.hb-editor-wrap,
+.hb-editor-wrap * {
+  box-sizing: border-box;
+}
+
+.hb-editor-wrap {
+  --hb-primary: #2563eb;
+  --hb-primary-dark: #1d4ed8;
+  --hb-border: #d9dde5;
+  --hb-text: #202124;
+  --hb-muted: #6b7280;
+  --hb-light: #f8fafc;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 28px auto;
+  overflow: visible;
+  border: 1px solid var(--hb-border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, .08);
+}
+
+/* Tên và email */
+
+.hb-user-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+  border-bottom: 1px solid var(--hb-border);
+  border-radius: 16px 16px 0 0;
+  background: var(--hb-light);
+}
+
+.hb-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hb-field-icon {
+  position: absolute;
+  left: 15px;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 17px;
+}
+
+.hb-field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px 0 46px;
+  border: 1px solid #d5dae3;
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  color: var(--hb-text);
+  font-family: inherit;
+  font-size: 15px;
+  transition: .2s ease;
+}
+
+.hb-field input:focus {
+  border-color: var(--hb-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+.hb-field input:disabled {
+  color: #475569;
+  background: #eef2f7;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Thanh công cụ */
+
+.hb-editor-toolbar {
+  min-height: 62px;
+  display: flex;
+  align-items: stretch;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--hb-border);
+  background: #fff;
+}
+
+.hb-tool-btn {
+  min-width: 56px;
+  padding: 0 17px;
+  border: 0;
+  border-right: 1px solid #e1e4e8;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #202124;
+  font-family: inherit;
+  font-size: 22px;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.hb-tool-btn:first-child {
+  border-left: 1px solid #e1e4e8;
+}
+
+.hb-tool-btn:hover,
+.hb-tool-btn:focus-visible {
+  color: var(--hb-primary);
+  background: #eff6ff;
+}
+
+.hb-tool-bold {
+  font-weight: 900;
+}
+
+.hb-tool-italic {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.hb-toolbar-space {
+  flex: 1;
+}
+
+.hb-login-state {
+  max-width: 250px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  overflow: hidden;
+  color: var(--hb-muted);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Khu vực soạn nội dung */
+
+.hb-editor-content {
+  position: relative;
+  min-height: 235px;
+  padding: 30px 58px 30px 24px;
+  background: #fff;
+}
+
+#hb-message {
+  display: block;
+  width: 100%;
+  min-height: 175px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  background: transparent;
+  color: var(--hb-text);
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.7;
+  box-shadow: none;
+  transition: .2s ease;
+}
+
+#hb-message:hover {
+  border-color: #dbe2ea;
+}
+
+#hb-message:focus {
+  border-color: #1683e5;
+  box-shadow: 0 0 0 1px #1683e5;
+}
+
+#hb-message::placeholder {
+  color: #7b8089;
+  opacity: 1;
+}
+
+/* Nút dấu cộng */
+
+.hb-add-block {
+  position: absolute;
+  top: 44px;
+  right: 24px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: #242424;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.hb-add-block:hover {
+  background: var(--hb-primary);
+  transform: scale(1.06);
+}
+
+/* Menu dấu cộng */
+
+.hb-add-menu {
+  position: absolute;
+  top: 84px;
+  right: 24px;
+  z-index: 10000;
+  display: none;
+  width: 230px;
+  padding: 8px;
+  border: 1px solid #dce1e8;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, .17);
+}
+
+.hb-add-menu.hb-show {
+  display: block;
+  animation: hbShowMenu .18s ease;
+}
+
+.hb-add-menu button {
+  width: 100%;
+  display: block;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #334155;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hb-add-menu button:hover {
+  color: var(--hb-primary);
+  background: #eff6ff;
+}
+
+@keyframes hbShowMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Danh sách gợi ý @ */
+
+.hb-mention-box {
+  position: absolute;
+  left: 24px;
+  bottom: 15px;
+  z-index: 99999;
+  display: none;
+  min-width: 260px;
+  max-width: calc(100% - 48px);
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #dce1e8;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, .15);
+}
+
+.hb-mention-item {
+  padding: 11px 14px;
+  border-bottom: 1px solid #f0f2f5;
+  color: #334155;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hb-mention-item:last-child {
+  border-bottom: 0;
+}
+
+.hb-mention-item:hover {
+  color: var(--hb-primary);
+  background: #eff6ff;
+}
+
+/* Thanh công cụ dưới */
+
+.hb-editor-footer {
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--hb-border);
+  border-radius: 0 0 16px 16px;
+  background: #fcfcfd;
+}
+
+.hb-editor-options {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Nút Gmail */
+
+.hb-google-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #d7dce3;
+  border-radius: 7px;
+  background: #fff;
+  color: #334155;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.hb-google-login:hover {
+  border-color: var(--hb-primary);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, .12);
+}
+
+.hb-power-icon {
+  width: 47px;
+  height: 47px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #245bc7;
+  color: #fff;
+  font-size: 30px;
+}
+
+.hb-google-text {
+  padding-right: 13px;
+  font-size: 13px;
+}
+
+/* Công tắc riêng tư */
+
+.hb-private {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hb-private input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hb-private-switch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  flex: none;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: .2s ease;
+}
+
+.hb-private-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .22);
+  transition: .2s ease;
+}
+
+.hb-private input:checked + .hb-private-switch {
+  background: var(--hb-primary);
+}
+
+.hb-private input:checked + .hb-private-switch::after {
+  transform: translateX(18px);
+}
+
+/* Nút gửi */
+
+.hb-submit-button {
+  min-width: 155px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 20px;
+  border: 1px solid #d4d8de;
+  border-radius: 7px;
+  background: #fff;
+  color: #68707d;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.hb-submit-button:hover {
+  border-color: var(--hb-primary);
+  background: var(--hb-primary);
+  color: #fff;
+  box-shadow: 0 9px 22px rgba(37, 99, 235, .22);
+}
+
+.hb-submit-button:disabled {
+  border-color: #e3e6eb;
+  background: #f4f5f7;
+  color: #a7abb2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Thông báo */
+
+#hb-status {
+  min-height: 0;
+  margin: 0;
+  padding: 0 20px;
+  color: var(--hb-primary);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+#hb-status:not(:empty) {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #edf0f4;
+}
+
+/* Giao diện điện thoại */
+
+@media (max-width: 768px) {
+  .hb-editor-wrap {
+    border-radius: 12px;
+  }
+
+  .hb-user-fields {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .hb-editor-toolbar {
+    min-height: 54px;
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .hb-tool-btn {
+    min-width: 50px;
+    padding: 0 13px;
+  }
+
+  .hb-login-state {
+    display: none;
+  }
+
+  .hb-editor-content {
+    min-height: 220px;
+    padding: 22px 52px 22px 14px;
+  }
+
+  #hb-message {
+    min-height: 170px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .hb-add-block {
+    top: 32px;
+    right: 13px;
+  }
+
+  .hb-add-menu {
+    top: 70px;
+    right: 13px;
+  }
+
+  .hb-editor-footer {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .hb-editor-options {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .hb-google-text {
+    display: none;
+  }
+
+  .hb-submit-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .hb-private-text {
+    display: none;
+  }
+
+  .hb-tool-btn {
+    min-width: 46px;
+  }
+}  
+  
+  
+  
+  
+.hb-login-box,
+.hb-form-box,
+#hb-list {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hb-login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.hb-login-box button,
+.hb-form-box button {
+  border: 0;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.hb-login-box button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
+}
+
+#hb-login-status {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.hb-form-box {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 28px;
+  border: 1px solid #e7ddff;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff, #faf7ff);
+  box-shadow: 0 18px 45px rgba(124, 58, 237, .12);
+}
+
+.hb-form-box input,
+.hb-form-box textarea {
+  width: 100%;
+  border: 1px solid #d8c8ff;
+  border-radius: 14px;
+  outline: none;
+  background: #fff;
+  color: #111827;
+  font-size: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(124, 58, 237, .06);
+  transition: .25s ease;
+}
+
+.hb-form-box input:focus,
+.hb-form-box textarea:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, .15);
+}
+
+#hb-name { grid-column: 1; }
+#hb-email { grid-column: 2; }
+#hb-message {
+  grid-column: 1 / span 2;
+  min-height: 140px;
+  resize: vertical;
+}
+
+.hb-form-box input:disabled {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.hb-private {
+  grid-column: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  color: #374151;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.hb-private input {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  accent-color: #8b5cf6;
+  box-shadow: none;
+}
+
+.hb-form-box button {
+  grid-column: 1;
+  width: 220px;
+  height: 54px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  box-shadow: 0 12px 28px rgba(124, 58, 237, .28);
+}
+
+.hb-form-box button:hover,
+.hb-login-box button:hover {
+  transform: translateY(-2px);
+}
+
+#hb-status {
+  grid-column: 1 / span 2;
+  margin: 0;
+  color: #7c3aed;
+  font-weight: 700;
+}
+
+.hb-contact-top {
+  max-width: 1200px;
+  margin: 18px auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hb-contact-notice {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(15, 23, 42, .05);
+}
+
+.hb-icon {
+  width: 58px;
+  height: 58px;
+  flex: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: #eff6ff;
+}
+
+.hb-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.hb-desc {
+  margin-top: 4px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.hb-total-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid #bae6fd;
+  border-radius: 12px;
+  background: #f0f9ff;
+  color: #0369a1;
+  font-weight: 700;
+  height:160px;
+  width:230px;
+}
+
+#hb-total {
+  color: #2563eb;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.hb-item {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 18px 18px 18px 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  overflow: hidden;
+}
+
+.hb-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #2563eb, #06b6d4);
+}
+
+.hb-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.hb-user {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.hb-badge {
+  display: inline-flex;
+  margin-left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hb-time {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+}
+
+.hb-message {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.hb-mention {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 2px;
+  border-radius: 8px;
+  background: #fef08a;
+  color: #111827;
+  font-weight: 800;
+}
+
+.hb-lock {
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-weight: 700;
+}
+
+.hb-delete-btn {
+  border: 0;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 800;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.hb-media-box {
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .12);
+}
+
+.hb-image-box,
+.hb-youtube-box {
+  aspect-ratio: 16 / 9;
+}
+
+.hb-image-box img,
+.hb-youtube-box iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  object-fit: cover;
+}
+
+.hb-attach-box {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: #f8fbff;
+}
+
+.hb-attach-title {
+  margin-bottom: 10px;
+  color: #1d4ed8;
+  font-weight: 900;
+}
+
+.hb-attach-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  color: #111827;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+.hb-attach-icon img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.hb-attach-info small {
+  display: block;
+  max-width: 850px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hb-mention-box {
+ /* position: absolute; */
+  z-index: 99999;
+  display: none;
+  min-width: 240px;
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid #e7ddff;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+}
+
+.hb-mention-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 700;
+}
+
+.hb-mention-item:hover {
+  background: #f3edff;
+  color: #7c3aed;
+}
+
+.hb-copyright {
+  max-width: 1200px;
+  margin: 25px auto;
+  text-align: right;
+  color: #0d6efd;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+@media (max-width: 768px) {
+  .hb-form-box {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  #hb-name,
+  #hb-email,
+  #hb-message,
+  .hb-private,
+  .hb-form-box button,
+  #hb-status {
+    grid-column: 1;
+  }
+
+  .hb-form-box button {
+    width: 100%;
+  }
+
+  .hb-item-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+</style>
+
+<script>
+const HB_API = "https://forum.toihung.workers.dev/";
+const HB_DELETE_TOKEN = "hungblog.com";
+const HB_GOOGLE_CLIENT_ID = "922125762423-n3mojv62se0m0fl8rqrnjr4k8v0jqfrj.apps.googleusercontent.com";
+
+const HB_ADMINS = [
+  {
+    name: "Lê Hùng",
+    email: "admin@hungblog.com",
+    badge: "👑",
+    title: "Quản trị viên"
+  },
+  {
+    name: "Cộng Tác Viên",
+    email: "bom.lanhlung@gmail.com",
+    badge: "🛡️",
+    title: "Moderator"
+  }
+];
+
+const HB_BLOCKED_LINKS = [
+  "seotut.com"
+];
+
+let hbUsers = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const year = document.getElementById("hb-year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  hbFillLoginInfo();
+  hbLoadData();
+  hbSetupMention();
+});
+
+function hbEscape(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+  
+  
+  function hbFormatMessage(message) {
+  /*
+   * Luôn chạy hbEscape trước.
+   * Không được định dạng trước rồi mới escape.
+   */
+  let html = hbEscape(message);
+
+  /*
+   * Định dạng mã trước để hạn chế
+   * xung đột với các dấu sao.
+   */
+  html = html.replace(
+    /`([^`\n]+)`/g,
+    "<code>$1</code>"
+  );
+
+  /*
+   * In đậm: **nội dung**
+   */
+  html = html.replace(
+    /\*\*([^*\n]+)\*\*/g,
+    "<strong>$1</strong>"
+  );
+
+  /*
+   * Gạch chân: __nội dung__
+   */
+  html = html.replace(
+    /__([^_\n]+)__/g,
+    "<u>$1</u>"
+  );
+
+  /*
+   * Gạch ngang: ~~nội dung~~
+   */
+  html = html.replace(
+    /~~([^~\n]+)~~/g,
+    "<del>$1</del>"
+  );
+
+  /*
+   * In nghiêng: *nội dung*
+   * Chạy sau in đậm để tránh xung đột.
+   */
+  html = html.replace(
+    /(^|[^*])\*([^*\n]+)\*(?!\*)/g,
+    "$1<em>$2</em>"
+  );
+
+  /*
+   * Giữ xuống dòng.
+   */
+  html = html.replace(/\r?\n/g, "<br>");
+
+  return html;
+}
+  
+  
+}
+
+function hbGoogleLogin() {
+  if (!window.google || !google.accounts || !google.accounts.id) {
+    alert("Google Login chưa tải xong. Vui lòng thử lại sau vài giây.");
+    return;
+  }
+
+  google.accounts.id.initialize({
+    client_id: HB_GOOGLE_CLIENT_ID,
+    callback: hbHandleGoogleLogin
+  });
+
+  google.accounts.id.prompt();
+}
+
+function hbHandleGoogleLogin(response) {
+  const data = hbParseJwt(response.credential);
+  const name = data.name || "";
+  const email = data.email || "";
+
+  localStorage.setItem("hb_user_name", name);
+  localStorage.setItem("hb_user_email", email);
+  hbFillLoginInfo();
+}
+
+function hbParseJwt(token) {
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  return JSON.parse(decodeURIComponent(atob(base64).split("").map(c => {
+    return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join("")));
+}
+
+function hbFillLoginInfo() {
+  const name = localStorage.getItem("hb_user_name") || "";
+  const email = localStorage.getItem("hb_user_email") || "";
+  const nameInput = document.getElementById("hb-name");
+  const emailInput = document.getElementById("hb-email");
+  const status = document.getElementById("hb-login-status");
+
+  if (!nameInput || !emailInput || !status) return;
+
+  if (name && email) {
+    nameInput.value = name;
+    emailInput.value = email;
+    nameInput.disabled = true;
+    emailInput.disabled = true;
+    status.innerHTML = "✅ Đã đăng nhập: " + hbEscape(name);
+  } else {
+    nameInput.disabled = false;
+    emailInput.disabled = false;
+    status.innerHTML = "Chưa đăng nhập";
+  }
+}
+
+function hbLogout() {
+  localStorage.removeItem("hb_user_name");
+  localStorage.removeItem("hb_user_email");
+  hbFillLoginInfo();
+}
+
+function hbGetBadge(name, email) {
+  const inputName = String(name || "").trim().toLowerCase();
+  const inputEmail = String(email || "").trim().toLowerCase();
+
+  return HB_ADMINS.find(admin => {
+    const adminName = String(admin.name || "").trim().toLowerCase();
+    const adminEmail = String(admin.email || "").trim().toLowerCase();
+
+    if (inputEmail) {
+      return adminName === inputName && adminEmail === inputEmail;
+    }
+
+    return adminName === inputName;
+  }) || null;
+}
+
+function hbCanDelete(name, email) {
+  return hbGetBadge(name, email) !== null;
+}
+
+function hbRenderUser(name, email) {
+  const admin = hbGetBadge(name, email);
+
+  if (admin) {
+    return `
+      <h3 class="hb-user hb-admin-name">
+        <span>${hbEscape(name)}</span>
+        <span class="hb-badge">${admin.badge} ${hbEscape(admin.title)}</span>
+      </h3>
+    `;
+  }
+
+  return `
+    <h3 class="hb-user">
+      <span>${hbEscape(name)}</span>
+    </h3>
+  `;
+}
+
+function hbRenderDeleteButton(item) {
+  const loginName = localStorage.getItem("hb_user_name") || "";
+  const loginEmail = localStorage.getItem("hb_user_email") || "";
+
+  if (!hbCanDelete(loginName, loginEmail)) return "";
+
+  const id = item.id || item.row || item.time || "";
+  return `<button class="hb-delete-btn" type="button" onclick="hbDeleteContact('${hbEscape(id)}')">🗑️ Xóa</button>`;
+}
+
+function hbFormatTime(dateString) {
+  if (!dateString) return "";
+
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return dateString;
+
+  return date.toLocaleString("vi-VN", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  });
+}
+
+function hbGetLinks(text) {
+  const urlRegex = /(https?:\/\/[^\s<>"']+)/gi;
+  return String(text || "").match(urlRegex) || [];
+}
+
+function hbIsBlockedLink(url) {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "").toLowerCase();
+    return HB_BLOCKED_LINKS.some(blocked => {
+      const cleanBlocked = blocked.toLowerCase().replace(/^www\./, "");
+      return host === cleanBlocked || host.endsWith("." + cleanBlocked);
+    });
+  } catch (error) {
+    return false;
+  }
+}
+
+function hbHasBlockedLink(text) {
+  return hbGetLinks(text).some(link => hbIsBlockedLink(link));
+}
+
+function hbIsImageUrl(url) {
+  try {
+    const u = new URL(url);
+    return /\.(jpg|jpeg|png|gif|webp|avif|bmp|svg)(\?.*)?$/i.test(u.pathname + u.search);
+  } catch (error) {
+    return false;
+  }
+}
+
+function hbGetYoutubeId(url) {
+  try {
+    const u = new URL(url);
+
+    if (u.hostname.includes("youtu.be")) {
+      return u.pathname.replace("/", "").split("?")[0];
+    }
+
+    if (u.hostname.includes("youtube.com")) {
+      if (u.searchParams.get("v")) return u.searchParams.get("v");
+
+      const parts = u.pathname.split("/");
+      const index = parts.findIndex(part => ["shorts", "embed", "live"].includes(part));
+
+      if (index >= 0 && parts[index + 1]) return parts[index + 1];
+    }
+  } catch (error) {}
+
+  return "";
+}
+
+function hbRenderMedia(text) {
+  const links = hbGetLinks(text).filter(link => !hbIsBlockedLink(link));
+  let html = "";
+
+  links.forEach(link => {
+    const safeLink = hbEscape(link);
+    const youtubeId = hbGetYoutubeId(link);
+
+    if (youtubeId) {
+      html += `
+        <div class="hb-media-box hb-youtube-box">
+          <iframe src="https://www.youtube.com/embed/${hbEscape(youtubeId)}" title="YouTube video" loading="lazy" allowfullscreen></iframe>
+        </div>
+      `;
+      return;
+    }
+
+    if (hbIsImageUrl(link)) {
+      html += `
+        <div class="hb-media-box hb-image-box">
+          <a href="${safeLink}" target="_blank" rel="nofollow noopener noreferrer">
+            <img src="${safeLink}" alt="Hình ảnh liên hệ" loading="lazy">
+          </a>
+        </div>
+      `;
+    }
+  });
+
+  return html;
+}
+
+function hbFormatMessage(text) {
+  let html = hbEscape(text);
+  html = html.replace(/\n/g, "<br>");
+  html = html.replace(/(^|[\s>])(@[a-zA-ZÀ-ỹ0-9_.-]+)/giu, '$1<mark class="hb-mention"><strong>$2</strong></mark>');
+  return html;
+}
+
+function hbRenderLinks(text) {
+  const links = hbGetLinks(text).filter(link => !hbIsBlockedLink(link));
+  if (!links.length) return "";
+
+  return `
+    <div class="hb-attach-box">
+      <div class="hb-attach-title">🔗 Liên kết đính kèm</div>
+      ${links.map(link => {
+        const safeLink = hbEscape(link);
+        let domain = safeLink;
+
+        try {
+          domain = new URL(link).hostname.replace("www.", "");
+        } catch (error) {}
+
+        return `
+          <a class="hb-attach-link" href="${safeLink}" target="_blank" rel="nofollow noopener noreferrer">
+            <span class="hb-attach-icon">
+              <img src="https://www.google.com/s2/favicons?sz=64&domain_url=${encodeURIComponent(link)}" alt="${hbEscape(domain)}" loading="lazy" width="32" height="32" onerror="this.src='https://www.google.com/favicon.ico'">
+            </span>
+            <span class="hb-attach-info">
+              <strong>${hbEscape(domain)}</strong>
+              <small>${safeLink}</small>
+            </span>
+          </a>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function hbLoadData() {
+  fetch(HB_API)
+    .then(response => response.json())
+    .then(data => {
+      const list = document.getElementById("hb-list");
+      const total = document.getElementById("hb-total");
+
+      if (!Array.isArray(data)) {
+        list.innerHTML = "Dữ liệu trả về không đúng định dạng.";
+        return;
+      }
+
+      hbUpdateUserList(data);
+      total.textContent = data.length;
+
+      if (!data.length) {
+        list.innerHTML = "Chưa có nội dung.";
+        return;
+      }
+
+      list.innerHTML = data.map(item => `
+        <div class="hb-item">
+          <div class="hb-item-head">
+            ${hbRenderUser(item.name, item.email || "")}
+            ${hbRenderDeleteButton(item)}
+          </div>
+
+          <div class="hb-time">🕒 ${hbFormatTime(item.time)}</div>
+
+          <p class="hb-message">
+            ${item.private ? '<span class="hb-lock">🔒 Nội dung này chỉ quản trị viên có thể xem.</span>' : hbFormatMessage(item.message)}
+          </p>
+
+          ${item.private ? "" : hbRenderMedia(item.message) + hbRenderLinks(item.message)}
+        </div>
+      `).join("");
+    })
+    .catch(() => {
+      document.getElementById("hb-list").innerHTML = "Không thể tải dữ liệu.";
+    });
+}
+
+function hbSendData() {
+  const status = document.getElementById("hb-status");
+  const submitButton = document.getElementById("hb-submit-button");
+  const messageInput = document.getElementById("hb-message");
+  const privateInput = document.getElementById("hb-private");
+
+  const name =
+    localStorage.getItem("hb_user_name") ||
+    document.getElementById("hb-name").value.trim();
+
+  const email =
+    localStorage.getItem("hb_user_email") ||
+    document.getElementById("hb-email").value.trim();
+
+  const message = messageInput.value.trim();
+  const isPrivate = privateInput.checked;
+
+  if (!name || !email) {
+    status.innerHTML =
+      "❌ Vui lòng đăng nhập Gmail hoặc nhập đầy đủ tên và email.";
+
+    return;
+  }
+
+  if (!message) {
+    status.innerHTML =
+      "❌ Vui lòng nhập nội dung liên hệ.";
+
+    messageInput.focus();
+    return;
+  }
+
+  if (hbHasBlockedLink(message)) {
+    status.innerHTML =
+      "❌ Nội dung chứa liên kết không được phép đăng.";
+
+    return;
+  }
+
+  status.innerHTML = "⏳ Đang gửi nội dung...";
+
+  if (submitButton) {
+    submitButton.disabled = true;
+
+    submitButton.innerHTML = `
+      <span class="hb-submit-text">Đang gửi...</span>
+    `;
+  }
+
+  fetch(HB_API, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    },
+
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      message: message,
+      private: isPrivate,
+      ip: "",
+      ua: navigator.userAgent
+    })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(
+          "HTTP " + response.status
+        );
+      }
+
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === "success") {
+        status.innerHTML =
+          "✅ Gửi nội dung thành công!";
+
+        messageInput.value = "";
+        privateInput.checked = false;
+
+        hbCloseAddMenu();
+        hbFillLoginInfo();
+        hbLoadData();
+      } else {
+        status.innerHTML =
+          "❌ " +
+          (data.message || "Gửi nội dung thất bại.");
+      }
+    })
+    .catch(error => {
+      console.error("HungBlog send error:", error);
+
+      status.innerHTML =
+        "❌ Không thể gửi dữ liệu. Vui lòng kiểm tra kết nối máy chủ.";
+    })
+    .finally(() => {
+      if (submitButton) {
+        submitButton.disabled = false;
+
+        submitButton.innerHTML = `
+          <span class="hb-submit-text">Gửi liên hệ</span>
+          <span class="hb-submit-icon">➤</span>
+        `;
+      }
+    });
+}
+
+function hbDeleteContact(id) {
+  const loginName = localStorage.getItem("hb_user_name") || "";
+  const loginEmail = localStorage.getItem("hb_user_email") || "";
+
+  if (!hbCanDelete(loginName, loginEmail)) {
+    alert("Bạn không có quyền xóa liên hệ này.");
+    return;
+  }
+
+  if (!confirm("Bạn có chắc muốn xóa liên hệ này không?")) return;
+
+  fetch(HB_API, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "delete",
+      id: id,
+      token: HB_DELETE_TOKEN,
+      adminName: loginName,
+      adminEmail: loginEmail
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message || "Đã xử lý yêu cầu.");
+      if (data.status === "success") hbLoadData();
+    })
+    .catch(() => {
+      alert("Không thể kết nối máy chủ để xóa liên hệ.");
+    });
+}
+
+function hbNormalizeName(name) {
+  return String(name || "").trim().replace(/\s+/g, "_");
+}
+
+function hbUpdateUserList(data) {
+  const names = [];
+
+  data.forEach(item => {
+    if (item.name) names.push(hbNormalizeName(item.name));
+  });
+
+  hbUsers = [...new Set(names)].filter(Boolean);
+}
+
+function hbSetupMention() {
+  const textarea = document.getElementById("hb-message");
+  const box = document.getElementById("hb-mention-box");
+
+  if (!textarea || !box) return;
+
+  textarea.addEventListener("input", () => {
+    const value = textarea.value;
+    const cursor = textarea.selectionStart;
+    const before = value.slice(0, cursor);
+    const match = before.match(/@([a-zA-ZÀ-ỹ0-9_.-]*)$/u);
+
+    if (!match) {
+      box.style.display = "none";
+      return;
+    }
+
+    const keyword = match[1].toLowerCase();
+    const result = hbUsers.filter(name => name.toLowerCase().includes(keyword));
+
+    if (!result.length) {
+      box.style.display = "none";
+      return;
+    }
+
+    box.style.left = "24px";
+box.style.bottom = "15px";
+box.style.top = "auto";
+    box.innerHTML = result.map(name => `<div class="hb-mention-item" onclick="hbChooseMention('${hbEscape(name)}')">@${hbEscape(name)}</div>`).join("");
+    box.style.display = "block";
+  });
+
+  document.addEventListener("click", event => {
+    if (!box.contains(event.target) && event.target !== textarea) {
+      box.style.display = "none";
+    }
+  });
+}
+
+  
+  
+function hbChooseMention(name) {
+  const textarea = document.getElementById("hb-message");
+  const box = document.getElementById("hb-mention-box");
+  const cursor = textarea.selectionStart;
+  const value = textarea.value;
+  const before = value.slice(0, cursor);
+  const after = value.slice(cursor);
+  const newBefore = before.replace(/@([a-zA-ZÀ-ỹ0-9_.-]*)$/u, "@" + name + " ");
+
+  textarea.value = newBefore + after;
+  textarea.focus();
+  textarea.selectionStart = textarea.selectionEnd = newBefore.length;
+  box.style.display = "none";
+}
+  
+  
+  /* ==================================================
+   CÔNG CỤ SOẠN NỘI DUNG LIÊN HỆ
+================================================== */
+
+function hbGetMessageBox() {
+  return document.getElementById("hb-message");
+}
+
+/* Chèn nội dung tại vị trí con trỏ */
+function hbInsertAtCursor(content) {
+  const textarea = hbGetMessageBox();
+
+  if (!textarea) return;
+
+  const start = textarea.selectionStart || 0;
+  const end = textarea.selectionEnd || 0;
+  const oldValue = textarea.value;
+
+  textarea.value =
+    oldValue.substring(0, start) +
+    content +
+    oldValue.substring(end);
+
+  const newPosition = start + content.length;
+
+  textarea.focus();
+  textarea.setSelectionRange(newPosition, newPosition);
+
+  textarea.dispatchEvent(
+    new Event("input", {
+      bubbles: true
+    })
+  );
+
+  hbCloseAddMenu();
+}
+
+/* In đậm hoặc in nghiêng đoạn đang chọn */
+function hbWrapSelection(before, after) {
+  const textarea = hbGetMessageBox();
+
+  if (!textarea) return;
+
+  const start = textarea.selectionStart || 0;
+  const end = textarea.selectionEnd || 0;
+  const selectedText = textarea.value.substring(start, end);
+
+  const content = selectedText || "nội dung";
+
+  const newText =
+    before +
+    content +
+    after;
+
+  textarea.setRangeText(
+    newText,
+    start,
+    end,
+    "select"
+  );
+
+  textarea.focus();
+
+  textarea.dispatchEvent(
+    new Event("input", {
+      bubbles: true
+    })
+  );
+}
+
+/* Chèn liên kết thông thường */
+function hbInsertLink() {
+  const url = prompt(
+    "Nhập liên kết đầy đủ.\nVí dụ: https://www.hungblog.com/"
+  );
+
+  if (!url) return;
+
+  const cleanUrl = url.trim();
+
+  if (!/^https?:\/\//i.test(cleanUrl)) {
+    alert("Liên kết phải bắt đầu bằng http:// hoặc https://");
+    return;
+  }
+
+  hbInsertAtCursor(cleanUrl + " ");
+}
+
+/* Chèn liên kết hình ảnh */
+function hbInsertImageLink() {
+  const url = prompt(
+    "Nhập liên kết trực tiếp của hình ảnh.\nVí dụ: https://example.com/image.jpg"
+  );
+
+  if (!url) return;
+
+  const cleanUrl = url.trim();
+
+  if (!/^https?:\/\//i.test(cleanUrl)) {
+    alert("Liên kết hình ảnh phải bắt đầu bằng http:// hoặc https://");
+    return;
+  }
+
+  hbInsertAtCursor(cleanUrl + "\n");
+}
+
+/* Chèn video YouTube */
+function hbInsertVideoLink() {
+  const url = prompt(
+    "Nhập liên kết video YouTube."
+  );
+
+  if (!url) return;
+
+  const cleanUrl = url.trim();
+
+  if (
+    !/^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(cleanUrl)
+  ) {
+    alert("Vui lòng nhập đúng liên kết YouTube.");
+    return;
+  }
+
+  hbInsertAtCursor(cleanUrl + "\n");
+}
+
+/* Chèn ký tự @ */
+function hbInsertMention() {
+  hbInsertAtCursor("@");
+}
+
+/* Bật hoặc tắt menu dấu cộng */
+function hbToggleAddMenu(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  const menu = document.getElementById("hb-add-menu");
+
+  if (!menu) return;
+
+  menu.classList.toggle("hb-show");
+}
+
+/* Đóng menu dấu cộng */
+function hbCloseAddMenu() {
+  const menu = document.getElementById("hb-add-menu");
+
+  if (menu) {
+    menu.classList.remove("hb-show");
+  }
+}
+
+/* Nhấn bên ngoài để đóng menu */
+document.addEventListener("click", function(event) {
+  const menu = document.getElementById("hb-add-menu");
+  const button = document.querySelector(".hb-add-block");
+
+  if (!menu || !button) return;
+
+  if (
+    !menu.contains(event.target) &&
+    !button.contains(event.target)
+  ) {
+    hbCloseAddMenu();
+  }
+});
+</script>
